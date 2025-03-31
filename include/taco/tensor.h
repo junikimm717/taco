@@ -533,7 +533,9 @@ protected:
       const typename const_iterator<T,CType>::Coordinates& coordinate, 
       CType value);
 
-private:
+// temporary for debugging purposes.
+//private:
+public:
   template <typename CType>
   void reinsertPackedComponents();
 
