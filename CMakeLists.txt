@@ -115,10 +115,13 @@ set(TACO_LIBRARY_DIR ${CMAKE_LIBRARY_OUTPUT_DIRECTORY})
 
 install(DIRECTORY ${TACO_INCLUDE_DIR}/ DESTINATION include FILES_MATCHING PATTERN "*.h")
 
+if(CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
+  add_subdirectory(test)
+  add_subdirectory(tools)
+  add_subdirectory(apps)
+endif()
 add_subdirectory(src)
-add_subdirectory(test)
-add_subdirectory(tools)
-add_subdirectory(apps)
+
 string(REPLACE " -Wmissing-declarations" "" CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
 
 find_package(Git QUIET)
